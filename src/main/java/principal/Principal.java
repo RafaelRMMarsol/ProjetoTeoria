@@ -17,9 +17,9 @@ public class Principal {
         Map<String, Integer> votes = new LinkedHashMap<>();
 
         System.out.print("Insira o caminho completo do arquivo: ");
-        String path = sc.nextLine();
+        String caminho = sc.nextLine();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(caminho))) {
 
             String line = br.readLine();
             while (line != null) {
@@ -38,9 +38,9 @@ public class Principal {
                 line = br.readLine();
             }
 
-            for (String key : votes.keySet()) {
+            votes.keySet().forEach(key -> {
                 System.out.println(key + ": " + votes.get(key));
-            }
+            });
 
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
